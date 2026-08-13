@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velmora · Disclaimer | Pizza Reverie</title>
+  <!-- Font & base styling -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    /* ----- reset & base ----- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #fbf7f0;
+      font-family: 'Inter', sans-serif;
+      color: #2a2621;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ----- brand identity : Velmora Pizza Reverie ----- */
+    :root {
+      --velmora-ivory: #f7efe6;
+      --velmora-stone: #d9cdbc;
+      --velmora-brick: #b13e2b;
+      --velmora-gold: #c79a5e;
+      --velmora-charcoal: #2a2621;
+      --velmora-warm: #f0e3d4;
+      --shadow-soft: 0 16px 40px -12px rgba(42, 38, 33, 0.12);
+      --radius-card: 28px 8px 28px 8px;
+      --radius-alt: 8px 28px 8px 28px;
+    }
+
+    /* ----- typography ----- */
+    h1, h2, h3, h4 {
+      font-family: 'Instrument Serif', serif;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+    h1 { font-size: 4.2rem; line-height: 1.1; }
+    h2 { font-size: 2.8rem; line-height: 1.2; margin-bottom: 0.5rem; }
+    h3 { font-size: 1.8rem; line-height: 1.3; }
+    .serif-italic { font-family: 'Instrument Serif', serif; font-style: italic; }
+
+    /* ----- navigation (unique: vertical split + floating logo) ----- */
+    .nav-velmora {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 0 18px;
+      border-bottom: 1px solid rgba(42, 38, 33, 0.06);
+      position: relative;
+    }
+    .logo-wordmark {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.2rem;
+      letter-spacing: -0.02em;
+      background: var(--velmora-charcoal);
+      color: var(--velmora-ivory);
+      padding: 6px 28px 6px 24px;
+      border-radius: 40px 8px 40px 8px;
+      display: inline-block;
+      transform: rotate(-1deg);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .logo-wordmark span { color: var(--velmora-gold); font-style: italic; }
+    .nav-links {
+      display: flex;
+      gap: 2.6rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .nav-links a { 
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
+    }
+    .nav-links a:hover { border-bottom-color: var(--velmora-brick); color: var(--velmora-brick); }
+
+    /* ----- page header (disclaimer) ----- */
+    .page-header {
+      margin: 48px 0 32px;
+    }
+    .page-header h1 {
+      font-size: 4rem;
+      letter-spacing: -0.02em;
+    }
+    .page-header p {
+      font-size: 1.2rem;
+      color: #4d4239;
+      max-width: 720px;
+    }
+
+    /* ----- disclaimer content (long-form, with highlights) ----- */
+    .disclaimer-content {
+      background: #fcf9f5;
+      border-radius: 48px 8px 48px 8px;
+      padding: 48px 56px;
+      margin: 24px 0 80px;
+      border: 1px solid rgba(177, 62, 43, 0.08);
+      box-shadow: var(--shadow-soft);
+    }
+    .disclaimer-content h2 {
+      font-size: 2.4rem;
+      margin-top: 40px;
+      margin-bottom: 16px;
+    }
+    .disclaimer-content h2:first-of-type { margin-top: 0; }
+    .disclaimer-content p {
+      margin-bottom: 1.2rem;
+      font-size: 1.02rem;
+      color: #2f2a24;
+    }
+    .disclaimer-content ul {
+      margin: 20px 0 24px 30px;
+      list-style-type: disc;
+    }
+    .disclaimer-content li { margin-bottom: 10px; }
+    .disclaimer-content .highlight-box {
+      background: #f2ebe2;
+      padding: 20px 28px;
+      border-radius: 40px 8px 40px 8px;
+      margin: 28px 0;
+      border-left: 6px solid var(--velmora-brick);
+    }
+    .disclaimer-content .highlight-box strong { color: var(--velmora-brick); }
+    .disclaimer-content .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 28px 0;
+    }
+    .disclaimer-content .grid-2col > div {
+      background: #f7efe6;
+      padding: 20px 24px;
+      border-radius: 24px 4px 24px 4px;
+    }
+    .disclaimer-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 28px 0;
+      background: #f7efe6;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    .disclaimer-content th, .disclaimer-content td {
+      padding: 14px 18px;
+      text-align: left;
+      border-bottom: 1px solid #d9cdbc;
+    }
+    .disclaimer-content th { background: #c79a5e20; font-weight: 600; }
+
+    @media (max-width: 900px) {
+      .disclaimer-content { padding: 28px; }
+      .page-header h1 { font-size: 2.8rem; }
+      .disclaimer-content .grid-2col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .nav-velmora { flex-wrap: wrap; gap: 16px; }
+      .nav-links { gap: 1.2rem; font-size: 0.75rem; }
+    }
+
+    /* ----- footer (same as privacy) ----- */
+    .footer-velmora {
+      background: var(--velmora-charcoal);
+      color: #d9cdbc;
+      padding: 64px 0 40px;
+      border-radius: 80px 8px 0 0;
+      margin-top: 48px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    .footer-grid h5 { color: #f7efe6; font-size: 1.2rem; font-family: 'Instrument Serif', serif; letter-spacing: 0.02em; margin-bottom: 20px; }
+    .footer-grid ul { list-style: none; }
+    .footer-grid li { margin-bottom: 10px; font-size: 0.95rem; }
+    .footer-grid li a { opacity: 0.8; transition: 0.2s; }
+    .footer-grid li a:hover { opacity: 1; color: var(--velmora-gold); }
+    .footer-copy {
+      border-top: 1px solid #3f3730;
+      margin-top: 48px;
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+    }
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- navigation -->
+  <nav class="nav-velmora">
+    <div class="logo-wordmark">Velmora <span>Pizza</span> Reverie</div>
+    <div class="nav-links">
+     <a href="index.html">Home</a>
+     <a href="about.html">About</a>
+     <a href="contact.html">Contact</a>
+     <a href="terms.html">Terms</a>
+     <a href="privacy.html">Privacy</a>
+     <a href="cookies.html">Cookies</a>
+     <a href="disclaimer.html">Disclaimer</a>
+     <a href="categories.html">Categories</a>
+    </div>
+  </nav>
+</div>
+
+<!-- page header -->
+<div class="container page-header">
+  <h1>Disclaimer</h1>
+  <p>Transparency is our ingredient. Please read this disclaimer carefully before using our content.</p>
+</div>
+
+<!-- disclaimer content (long-form, with tables, highlights, grid) -->
+<div class="container">
+  <div class="disclaimer-content">
+    <h2>General Information</h2>
+    <p>Velmora Pizza Reverie is an authority blog dedicated to the art of pizza making. All content published on this website is for informational and educational purposes only. We are not professional chefs, nutritionists, or medical practitioners.</p>
+
+    <h2>Affiliate &amp; Advertising Disclosure</h2>
+    <p>Some links on this site may be affiliate links. This means we may earn a small commission if you make a purchase through those links, at no additional cost to you. We only recommend products we genuinely believe in.</p>
+
+    <div class="grid-2col">
+      <div>
+        <strong>📌 Affiliate networks</strong>
+        <ul style="margin: 12px 0 0 20px; list-style: square;">
+          <li>Amazon Associates</li>
+          <li>Klaviyo (referral)</li>
+          <li>Bread & Baker suppliers</li>
+        </ul>
+      </div>
+      <div>
+        <strong>📌 Sponsored content</strong>
+        <p style="font-size: 0.98rem; margin-top: 8px;">We occasionally feature sponsored posts. These are clearly marked and do not influence our editorial integrity.</p>
+      </div>
+    </div>
+
+    <h2>Accuracy &amp; Reliability</h2>
+    <p>We strive to provide accurate, up-to-date information. However, recipes, techniques, and ingredient ratios may vary. We cannot guarantee that every recipe will yield perfect results in your kitchen. Always use your own judgment and consult multiple sources when in doubt.</p>
+
+    <table>
+      <tr><th>Content type</th><th>Disclaimer</th></tr>
+      <tr><td>Recipes</td><td>Tested in our kitchen, but results may vary based on ingredients, equipment, and technique.</td></tr>
+      <tr><td>Nutritional info</td><td>Approximated for convenience; consult a dietitian for precise dietary needs.</td></tr>
+      <tr><td>Product reviews</td><td>Based on personal experience; we are not liable for third-party product performance.</td></tr>
+    </table>
+
+    <h2>External Links</h2>
+    <p>We link to external websites for your convenience. We do not endorse or take responsibility for the content, accuracy, or privacy practices of these third-party sites. Always check their policies before engaging.</p>
+
+    <div class="highlight-box">
+      <strong>⚠️ Important:</strong> This website does not provide medical, legal, or professional advice. Always consult a qualified expert for specific concerns. The views expressed are solely those of the authors.
+    </div>
+
+    <h2>Limitation of Liability</h2>
+    <p>Velmora Pizza Reverie, its authors, and affiliates are not liable for any damages, losses, or injuries arising from the use of our content. You assume full responsibility for your actions based on the information provided.</p>
+
+    <h2>Copyright &amp; Fair Use</h2>
+    <p>All original content (text, images, and design) is the property of Velmora Pizza Reverie unless otherwise noted. We respect the intellectual property of others. If you believe any content infringes your copyright, please contact us at <strong>legal@velmorapizza.com</strong>.</p>
+
+    <div style="background: #e8ddd0; padding: 24px 28px; border-radius: 40px 8px 40px 8px; margin: 32px 0 12px;">
+      <p style="font-weight: 600; font-size: 1.1rem;">📬 For any questions regarding this disclaimer, reach out to us at <span style="color: var(--velmora-brick);">disclaimer@velmorapizza.com</span></p>
+    </div>
+    <p style="margin-top: 24px; font-size: 0.95rem; color: #5f5549;">Last updated: 11 August 2026</p>
+  </div>
+</div>
+
+<!-- footer -->
+<footer class="footer-velmora">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h5>Velmora Pizza Reverie</h5>
+        <p style="opacity: 0.8; max-width: 280px;">An authority blog for the obsessive pizza maker. Handcrafted, never templated.</p>
+        <p style="margin-top: 12px; font-size: 0.9rem;">© 2026 · all rights reserved</p>
+      </div>
+      <div>
+        <h5>Navigate</h5>
+        <ul><li><a href="#">Home</a></li><li><a href="#">Blog</a></li><li><a href="#">Categories</a></li><li><a href="#">Archive</a></li><li><a href="#">Authors</a></li></ul>
+      </div>
+      <div>
+        <h5>Info</h5>
+        <ul><li><a href="#">About</a></li><li><a href="#">Contact</a></li><li><a href="#">Editorial Policy</a></li><li><a href="#">FAQ</a></li><li><a href="#">Resources</a></li></ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms & Conditions</a></li><li><a href="#">Cookie Policy</a></li><li><a href="#">Disclaimer</a></li><li><a href="#">Sitemap</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <span>Designed with restraint · Velmora Studio</span>
+      <span>🌿 handcrafted · no templates</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velmora · Pizza Reverie | authority recipes</title>
+  <!-- Font & base styling -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    /* ----- reset & base ----- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #fbf7f0;
+      font-family: 'Inter', sans-serif;
+      color: #2a2621;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ----- brand identity : Velmora Pizza Reverie ----- */
+    :root {
+      --velmora-ivory: #f7efe6;
+      --velmora-stone: #d9cdbc;
+      --velmora-brick: #b13e2b;
+      --velmora-gold: #c79a5e;
+      --velmora-charcoal: #2a2621;
+      --velmora-warm: #f0e3d4;
+      --shadow-soft: 0 16px 40px -12px rgba(42, 38, 33, 0.12);
+      --radius-card: 28px 8px 28px 8px;
+      --radius-alt: 8px 28px 8px 28px;
+    }
+
+    /* ----- typography ----- */
+    h1, h2, h3, h4 {
+      font-family: 'Instrument Serif', serif;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+    h1 { font-size: 4.2rem; line-height: 1.1; }
+    h2 { font-size: 2.8rem; line-height: 1.2; margin-bottom: 0.5rem; }
+    h3 { font-size: 1.8rem; line-height: 1.3; }
+    .serif-italic { font-family: 'Instrument Serif', serif; font-style: italic; }
+
+    /* ----- navigation (unique: vertical split + floating logo) ----- */
+    .nav-velmora {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 0 18px;
+      border-bottom: 1px solid rgba(42, 38, 33, 0.06);
+      position: relative;
+    }
+    .logo-wordmark {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.2rem;
+      letter-spacing: -0.02em;
+      background: var(--velmora-charcoal);
+      color: var(--velmora-ivory);
+      padding: 6px 28px 6px 24px;
+      border-radius: 40px 8px 40px 8px;
+      display: inline-block;
+      transform: rotate(-1deg);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .logo-wordmark span { color: var(--velmora-gold); font-style: italic; }
+    .nav-links {
+      display: flex;
+      gap: 2.6rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .nav-links a { 
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
+    }
+    .nav-links a:hover { border-bottom-color: var(--velmora-brick); color: var(--velmora-brick); }
+
+    /* ----- homepage architecture: "chronicle grid" (no hero/featured/latest clone) ----- */
+    .chronicle-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px 32px;
+      margin: 56px 0 64px;
+    }
+    .chronicle-grid .primary-article {
+      grid-column: 1 / 2;
+      grid-row: 1 / 3;
+      background: white;
+      border-radius: var(--radius-alt);
+      box-shadow: var(--shadow-soft);
+      padding: 32px 32px 24px;
+      display: flex;
+      flex-direction: column;
+      background: #fffbf7;
+      border: 1px solid rgba(201, 154, 94, 0.12);
+    }
+    .primary-article .category-tag {
+      background: var(--velmora-brick);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 4px 16px;
+      border-radius: 40px;
+      align-self: flex-start;
+      margin-bottom: 16px;
+    }
+    .primary-article h2 { font-size: 3rem; line-height: 1.1; margin: 8px 0 12px; }
+    .primary-article .meta {
+      font-size: 0.9rem;
+      color: #5f5549;
+      border-bottom: 1px solid #e8ddd0;
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+    }
+    .primary-article p { font-size: 1.05rem; color: #3d3730; }
+
+    .grid-card {
+      background: white;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-soft);
+      padding: 24px 24px 20px;
+      transition: all 0.2s;
+      border: 1px solid rgba(201, 154, 94, 0.06);
+      background: #fcf9f5;
+    }
+    .grid-card:nth-child(2) { background: #f5efe8; border-radius: 8px 28px 8px 28px; }
+    .grid-card:nth-child(3) { background: #faf3ea; border-radius: 28px 8px 28px 8px; }
+    .grid-card:nth-child(4) { background: #f2ebe2; border-radius: 16px 40px 16px 40px; }
+    .grid-card .card-eyebrow {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #7a6b5d;
+      margin-bottom: 12px;
+    }
+    .grid-card h3 { font-size: 1.7rem; line-height: 1.2; margin-bottom: 8px; }
+    .grid-card p { font-size: 0.95rem; color: #3f3932; }
+    .read-more {
+      display: inline-block;
+      margin-top: 16px;
+      font-weight: 600;
+      color: var(--velmora-brick);
+      border-bottom: 2px solid transparent;
+    }
+    .read-more:hover { border-bottom-color: var(--velmora-brick); }
+
+    /* ----- category showcase (split) ----- */
+    .category-showcase {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      margin: 72px 0 64px;
+    }
+    .category-item {
+      padding: 24px 18px 18px;
+      background: #f2ebe2;
+      border-radius: 40px 8px 40px 8px;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.02);
+      transition: 0.2s;
+      border: 1px solid rgba(0,0,0,0.02);
+    }
+    .category-item:nth-child(2) { background: #e8ddd0; border-radius: 8px 40px 8px 40px; }
+    .category-item:nth-child(3) { background: #dfd2c2; border-radius: 30px 8px 30px 8px; }
+    .category-item h4 { font-size: 1.8rem; margin-bottom: 6px; }
+    .category-item span { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; color: #4d4239; }
+
+    /* ----- long-form article (featured article) ----- */
+    .featured-long {
+      background: #fcf9f5;
+      border-radius: 48px 8px 48px 8px;
+      padding: 48px 56px;
+      margin: 56px 0 80px;
+      border: 1px solid rgba(177, 62, 43, 0.08);
+      box-shadow: var(--shadow-soft);
+    }
+    .featured-long h2 { font-size: 3.2rem; margin-bottom: 12px; }
+    .featured-long .byline { font-size: 0.9rem; color: #6b5f52; margin-bottom: 24px; }
+    .featured-long h3 { margin-top: 32px; margin-bottom: 12px; font-size: 2rem; }
+    .featured-long p { margin-bottom: 1.2rem; font-size: 1.02rem; }
+    .featured-long table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 28px 0;
+      background: #f7efe6;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    .featured-long th, .featured-long td {
+      padding: 14px 18px;
+      text-align: left;
+      border-bottom: 1px solid #d9cdbc;
+    }
+    .featured-long th { background: #c79a5e20; font-weight: 600; }
+    .featured-long .faq-block {
+      background: #f2ebe2;
+      padding: 20px 28px;
+      border-radius: 40px 8px 40px 8px;
+      margin: 28px 0;
+    }
+    .featured-long .faq-block strong { color: var(--velmora-brick); }
+
+    /* ----- footer: handcrafted with unique components ----- */
+    .footer-velmora {
+      background: var(--velmora-charcoal);
+      color: #d9cdbc;
+      padding: 64px 0 40px;
+      border-radius: 80px 8px 0 0;
+      margin-top: 48px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    .footer-grid h5 { color: #f7efe6; font-size: 1.2rem; font-family: 'Instrument Serif', serif; letter-spacing: 0.02em; margin-bottom: 20px; }
+    .footer-grid ul { list-style: none; }
+    .footer-grid li { margin-bottom: 10px; font-size: 0.95rem; }
+    .footer-grid li a { opacity: 0.8; transition: 0.2s; }
+    .footer-grid li a:hover { opacity: 1; color: var(--velmora-gold); }
+    .footer-copy {
+      border-top: 1px solid #3f3730;
+      margin-top: 48px;
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+    }
+
+    /* responsive */
+    @media (max-width: 900px) {
+      .chronicle-grid { grid-template-columns: 1fr; }
+      .chronicle-grid .primary-article { grid-column: auto; grid-row: auto; }
+      .category-showcase { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { gap: 1.2rem; font-size: 0.75rem; }
+      h1 { font-size: 2.8rem; }
+      .featured-long { padding: 28px; }
+    }
+    @media (max-width: 600px) {
+      .nav-velmora { flex-wrap: wrap; gap: 16px; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+    /* infographic dummy */
+    .infographic-dummy {
+      background: #e8ddd0;
+      padding: 32px 20px;
+      border-radius: 100px 8px 100px 8px;
+      text-align: center;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #2a2621;
+      margin: 24px 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- navigation -->
+  <nav class="nav-velmora">
+    <div class="logo-wordmark">Velmora <span>Pizza</span> Reverie</div>
+    <div class="nav-links">
+     <a href="index.html">Home</a>
+     <a href="about.html">About</a>
+     <a href="contact.html">Contact</a>
+     <a href="terms.html">Terms</a>
+     <a href="privacy.html">Privacy</a>
+     <a href="cookies.html">Cookies</a>
+     <a href="disclaimer.html">Disclaimer</a>
+     <a href="categories.html">Categories</a>
+    </div>
+  </nav>
+</div>
+
+<!-- homepage: chronicle grid (no hero/featured/latest clone) -->
+<div class="container">
+  <div class="chronicle-grid">
+    <!-- primary article (large) -->
+    <article class="primary-article">
+      <span class="category-tag">MASTERCLASS</span>
+      <h2>The Alchemy of Neapolitan Dough</h2>
+      <div class="meta">by Elena V. · 12 min read · 11 Aug 2026</div>
+      <p>Hydration, fermentation, and the dance of flour and water. This is not a recipe—it’s a philosophy. We break down the science behind the perfect crust, from biga to poolish, and why 62% hydration is the sweet spot for home ovens. </p>
+      <a href="#" class="read-more">read the full thesis →</a>
+    </article>
+
+    <!-- cards with varied styles -->
+    <div class="grid-card">
+      <div class="card-eyebrow"><span>technique</span> <span>⏱ 8 min</span></div>
+      <h3>Tomato • Basil • Silence</h3>
+      <p>How the simplest pizza tells the most complex story. A deep-dive into San Marzano and the art of restraint.</p>
+      <a href="#" class="read-more">explore →</a>
+    </div>
+    <div class="grid-card">
+      <div class="card-eyebrow"><span>ingredients</span> <span>🔬 guide</span></div>
+      <h3>Mozzarella di Bufala</h3>
+      <p>From the pastures of Campania to your pizza peel. Why DOP matters and how to spot a fake.</p>
+      <a href="#" class="read-more">decode →</a>
+    </div>
+    <div class="grid-card">
+      <div class="card-eyebrow"><span>equipment</span> <span>⚡ review</span></div>
+      <h3>Ovens: Wood, Gas, or Steel?</h3>
+      <p>We tested 12 ovens to find the truth. The results may surprise you. (Spoiler: it’s not the price.)</p>
+      <a href="#" class="read-more">see results →</a>
+    </div>
+  </div>
+</div>
+
+<!-- category showcase (unique layout) -->
+<div class="container">
+  <div class="category-showcase">
+    <div class="category-item"><h4>🔥 Wood-Fired</h4><span>tradition · 8 articles</span></div>
+    <div class="category-item"><h4>🍕 Roman</h4><span>crispy · 5 articles</span></div>
+    <div class="category-item"><h4>🌿 Vegan</h4><span>plant-based · 4 articles</span></div>
+  </div>
+</div>
+
+<!-- long-form featured article with tables, FAQs, infographic -->
+<div class="container">
+  <article class="featured-long">
+    <h2>The Science of Pizza: Hydration, Heat, and Harmony</h2>
+    <div class="byline">by Dr. Marco Ferretti · 18 min read · updated Aug 2026</div>
+    <p>Pizza is not food. It is a system. In this extensive guide, we dissect every variable—from the protein content of flour to the thermodynamics of a stone oven. This is the definitive resource for the obsessive pizza maker.</p>
+    
+    <h3>1. The Hydration Matrix</h3>
+    <p>Water is the silent architect. Higher hydration (≥ 65%) yields airy, open crumb but demands a gentle hand. Lower hydration (≤ 55%) gives you a sturdy, crisp base—perfect for heavy toppings. The sweet spot for Neapolitan style is 62–65%.</p>
+    <table>
+      <tr><th>Hydration %</th><th>Texture</th><th>Best for</th></tr>
+      <tr><td>55–58%</td><td>Firm, crisp</td><td>Roman, thin crust</td></tr>
+      <tr><td>62–65%</td><td>Soft, airy</td><td>Neapolitan, classic</td></tr>
+      <tr><td>68–72%</td><td>Open crumb, chewy</td><td>Canotto, gourmet</td></tr>
+    </table>
+
+    <h3>2. The Fermentation Ladder</h3>
+    <p>Cold fermentation (24–72h) develops depth. We recommend 48 hours as the sweet spot for home bakers. Use a preferment like poolish or biga for extra complexity.</p>
+    
+    <div class="faq-block">
+      <strong>❓ FAQ: Why does my dough tear?</strong><br>
+      <em>Answer:</em> Over-fermentation or weak gluten. Try using a higher protein flour (W ≥ 300) and reduce hydration by 2%. Let it rest for 20 minutes after kneading.
+    </div>
+
+    <!-- infographic (max 4 images) -->
+    <div class="infographic-dummy">
+      📊 INFOGRAFIC: The ideal temperature curve for Neapolitan baking (400–450°C, 60–90 seconds)
+    </div>
+
+    <h3>3. Common Mistakes & Expert Fixes</h3>
+    <ul style="margin-left: 24px; margin-bottom: 24px;">
+      <li><strong>Mistake:</strong> Soggy center → <strong>Fix:</strong> Bake on a preheated stone, use less sauce, and avoid overtopping.</li>
+      <li><strong>Mistake:</strong> Burnt crust, raw interior → <strong>Fix:</strong> Lower the temperature slightly and extend bake time by 30s.</li>
+    </ul>
+
+    <h3>4. Comparison: Wood vs. Gas vs. Electric</h3>
+    <table>
+      <tr><th>Oven type</th><th>Temp</th><th>Flavor</th><th>Learning curve</th></tr>
+      <tr><td>Wood-fired</td><td>400–480°C</td><td>Smoky, complex</td><td>High</td></tr>
+      <tr><td>Gas</td><td>350–420°C</td><td>Clean, consistent</td><td>Medium</td></tr>
+      <tr><td>Electric (steel)</td><td>300–380°C</td><td>Neutral</td><td>Low</td></tr>
+    </table>
+    <p style="margin-top: 20px;">The choice depends on your style. Wood for theatre, gas for precision, electric for convenience. But remember: the oven is just a tool; the baker is the artist.</p>
+    <a href="#" class="read-more" style="font-size: 1.2rem;">continue to full guide →</a>
+  </article>
+</div>
+
+<!-- footer with pages: about, contact, privacy, terms, editorial, authors, etc -->
+<footer class="footer-velmora">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h5>Velmora Pizza Reverie</h5>
+        <p style="opacity: 0.8; max-width: 280px;">An authority blog for the obsessive pizza maker. Handcrafted, never templated.</p>
+        <p style="margin-top: 12px; font-size: 0.9rem;">© 2026 · all rights reserved</p>
+      </div>
+      <div>
+        <h5>Navigate</h5>
+        <ul><li><a href="#">Home</a></li><li><a href="#">Blog</a></li><li><a href="#">Categories</a></li><li><a href="#">Archive</a></li><li><a href="#">Authors</a></li></ul>
+      </div>
+      <div>
+        <h5>Info</h5>
+        <ul><li><a href="#">About</a></li><li><a href="#">Contact</a></li><li><a href="#">Editorial Policy</a></li><li><a href="#">FAQ</a></li><li><a href="#">Resources</a></li></ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms & Conditions</a></li><li><a href="#">Cookie Policy</a></li><li><a href="#">Disclaimer</a></li><li><a href="#">Sitemap</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <span>Designed with restraint · Velmora Studio</span>
+      <span>🌿 handcrafted · no templates</span>
+    </div>
+  </div>
+</footer>
+
+<!-- additional pages are linked in footer / navigation (all pages exist conceptually) -->
+</body>
+</html>
